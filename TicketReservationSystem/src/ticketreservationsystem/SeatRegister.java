@@ -25,6 +25,8 @@ public class SeatRegister {
     /**
      * Constructor for objects of class SeatRegister - call the private method
      * fillWithSeat, fills the register with seats.
+     * @param seatsWithinRow seats within the row
+     * @param numberOfSeatRows number of seat rows
      */
     public SeatRegister(int seatsWithinRow, int numberOfSeatRows) {
         this.numberOfSeatRows = numberOfSeatRows;
@@ -75,6 +77,7 @@ public class SeatRegister {
      * Gets seat based on ID.
      *
      * param seatId the seatId
+     * @param seatId seatId
      * @return the Seat based on seatId
      */
     public Seat getSeatById(String seatId) {
@@ -118,6 +121,7 @@ public class SeatRegister {
 
     /**
      * Skriver ut alle setene som er i registeret.
+     * @return a string of all available seats
      */
     public String listAllAvailableSeats() {
         String allSeatString = "";

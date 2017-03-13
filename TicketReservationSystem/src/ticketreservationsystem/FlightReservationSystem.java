@@ -38,7 +38,8 @@ public class FlightReservationSystem {
     /**
      * creates a flight and adds it into the flights list.
      *
-     * @param time get's the departure inputted
+     * @param hour get's the departure hour inputted
+     * @param minute get's the departure minute inputted
      * @param plane planeType desired
      */
     public void doCreateFlight(int hour, int minute, int plane) {
@@ -100,6 +101,7 @@ public class FlightReservationSystem {
     /**
      * lists all the seat on the given flight.
      *
+     * @param input the Seat inputted
      * @return a string with a list og all the seats in the flight
      */
     public String doListSeatsInFlight(String input) {
@@ -118,7 +120,7 @@ public class FlightReservationSystem {
     /**
      * List all passenger on the inputted flight.
      *
-     * @param input
+     * @param input flightId
      * @return passenger full name
      */
     public String doListPassengersInFlight(String input) {
@@ -147,8 +149,8 @@ public class FlightReservationSystem {
     /**
      * Gets a list of all available seats. uses a for-eash because there might
      * be many planes with the same flight time.
-     * @param flight
-     * @return 
+     * @param flight what flight it is
+     * @return list of all available seats
      */
 
     public String getListOfAllAvailableSeats(String flight) {

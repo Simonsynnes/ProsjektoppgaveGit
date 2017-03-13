@@ -19,8 +19,9 @@ public class Flight {
     
     /**
      * makes a flight with a decided size.
-     * @param flightSize sets the flight's size
-     * @param flightId sets the flights departure
+     * @param flightHour sets the flight's hour of departure
+     * @param flightMin sets the flight's minute of departure
+     * @param plane sets type plane tha flight have
      */
     
     public Flight(int flightHour, int flightMin, Plane plane) {
@@ -38,7 +39,7 @@ public class Flight {
     }
     
     /**
-     * get's the flights ID.
+     * get's the flights Time.
      * @return string flightid.
      */
     
