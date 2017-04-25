@@ -1,2 +1,0 @@
-# ProsjektoppgaveGit
-skuleprosjekt
