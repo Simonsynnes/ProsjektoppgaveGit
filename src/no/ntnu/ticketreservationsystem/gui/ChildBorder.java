@@ -10,9 +10,12 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -82,8 +85,73 @@ public abstract class ChildBorder {
         button.setOnAction((ActionEvent) -> {
             Stage newStage = new Stage();
             newStage.setTitle("My New Stage Title");
+                  // made a gridpane
+            GridPane grid = new GridPane();
+            grid.setPadding(new Insets(10, 10, 10, 10));
+            grid.setVgap(5);
+            grid.setHgap(5);
+//Defining the Name text field
+            final TextField name = new TextField();
+            name.setPromptText("Enter your first name.");
+            name.setPrefColumnCount(10);
+            name.getText();
+            GridPane.setConstraints(name, 0, 0);
+            grid.getChildren().add(name);
+//Defining the Last Name text field
+            final TextField lastName = new TextField();
+            lastName.setPromptText("Enter your last name.");
+            GridPane.setConstraints(lastName, 0, 1);
+            grid.getChildren().add(lastName);
+//Defining the Email address text field
+            final TextField email = new TextField();
+            email.setPrefColumnCount(15);
+            email.setPromptText("Enter your email address here.");
+            GridPane.setConstraints(email, 0, 2);
+            grid.getChildren().add(email);
+
+//Defining the Submit button
+            Button submit = new Button("Submit");
+            GridPane.setConstraints(submit, 1, 0);
+            grid.getChildren().add(submit);
+//Defining the Clear button
+            Button clear = new Button("Clear");
+            GridPane.setConstraints(clear, 1, 1);
+            grid.getChildren().add(clear);
+//Adding a Label
+            final Label label = new Label();
+            GridPane.setConstraints(label, 0, 3);
+            GridPane.setColumnSpan(label, 2);
+            grid.getChildren().add(label);
+
+//Setting an action for the Submit button
+            submit.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent e) {
+                    if ((email.getText() != null && !email.getText().isEmpty())) {
+                        label.setText(name.getText() + " " + lastName.getText() + ", "
+                                + "thank you for registering, you have been added to the system!");
+
+                    } else {
+                        label.setText("You have not registered yet!.");
+                    }
+                }
+            });
+
+//Setting an action for the Clear button
+            clear.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent e) {
+                    name.clear();
+                    lastName.clear();
+                    email.clear();
+                    label.setText(null);
+                }
+            });
+            
             newStage.initModality(Modality.APPLICATION_MODAL);
-            newStage.setScene(new Scene(new BorderPane(), 1200, 600));
+            newStage.setScene(new Scene(grid, 1200, 600));
             newStage.show();
         });
 
