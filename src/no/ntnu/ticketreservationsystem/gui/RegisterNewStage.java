@@ -281,21 +281,22 @@ public class RegisterNewStage {
         GridPane.setConstraints(flightID, 0, 0);
         
         TextField arrivalHour = new TextField();
+        arrivalHour.setPrefColumnCount(5);
         arrivalHour.setPromptText("Enter hour of arrival");
         GridPane.setConstraints(arrivalHour, 0, 1);
         
         TextField arrivalMin = new TextField();
-        arrivalMin.setPrefColumnCount(15);
+        arrivalMin.setPrefColumnCount(5);
         arrivalMin.setPromptText("Enter minute of arrival");
         GridPane.setConstraints(arrivalMin, 1, 1);
         
         TextField departureHour = new TextField();
-        departureHour.setPrefColumnCount(15);
+        departureHour.setPrefColumnCount(5);
         departureHour.setPromptText("Enter hour of departure");
         GridPane.setConstraints(departureHour, 0, 3);
         
         TextField departureMin = new TextField();
-        departureMin.setPrefColumnCount(15);
+        departureMin.setPrefColumnCount(5);
         departureMin.setPromptText("Enter minute of departure");
         GridPane.setConstraints(departureMin, 1, 3);
 
@@ -306,7 +307,7 @@ public class RegisterNewStage {
         GridPane.setConstraints(clear, 3, 1);
         
         Label label = new Label();
-        GridPane.setConstraints(label, 0, 3);
+        GridPane.setConstraints(label, 0, 6);
         GridPane.setColumnSpan(label, 2);
 
         //Setting an action for the Submit button
