@@ -171,7 +171,7 @@ public class RegisterNewStage {
         GridPane.setConstraints(clear, 1, 1);
         
         Label label = new Label();
-        GridPane.setConstraints(label, 0, 3);
+        GridPane.setConstraints(label, 0, 6);
         GridPane.setColumnSpan(label, 2);
 
         //Setting an action for the Submit button
@@ -238,7 +238,7 @@ public class RegisterNewStage {
         GridPane.setConstraints(clear, 1, 1);
         
         Label label = new Label();
-        GridPane.setConstraints(label, 0, 3);
+        GridPane.setConstraints(label, 0, 7);
         GridPane.setColumnSpan(label, 2);
 
         //Setting an action for the Submit button
