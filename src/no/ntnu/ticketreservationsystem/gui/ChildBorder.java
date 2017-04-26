@@ -77,10 +77,10 @@ public abstract class ChildBorder {
         scrollContent = new VBox();
         selectionBox.setPadding(new Insets(25, 15, 30, 15));
         selectionBox.setMaxHeight(Double.MAX_VALUE);
-        selectionBox.setStyle("-fx-background-color: rgb(0,0,0);");
+        selectionBox.setId("selectionBox");
         selectionBox.setPrefWidth(350);
         
-        Button button = new Button("button");
+        Button button = new Button("New");
         button.setPrefSize(400, 120);
         button.setOnAction((ActionEvent) -> {
             Stage newStage = new Stage();

@@ -21,3 +21,8 @@ and open the template in the editor.
 #selectionBox {
     -fx-font-size: 20px;
 }
+
+#selectionBox {
+    -fx-background-color: rgb(0,0,0);
+    -fx-font-size: 50;
+}
