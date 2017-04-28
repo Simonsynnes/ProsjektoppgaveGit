@@ -22,7 +22,7 @@ public class GUI extends Application {
     private TicketReservationSystem mainCore;
     private ChildBorder currentChildBorder;
     private Stack<ChildBorder> visitedChildBorders;
-    private BorderPane parrentBorder;
+    private BorderPane parentBorder;
     private TopBox topBox;
     
     /**
@@ -45,20 +45,20 @@ public class GUI extends Application {
         for(int i = 0; i <= 15; i++) {
             mainCore.doRegisterPilot("Olav", "Telseth", "hotmail", "49dc", "rokgr");
         }
-        parrentBorder = new BorderPane();
+        parentBorder = new BorderPane();
         visitedChildBorders = new Stack<>();
         
         topBox = new TopBox(this);
         
         topBox.getTopBox().setId("registerBox");
-        parrentBorder.setTop(topBox.getTopBox());
+        parentBorder.setTop(topBox.getTopBox());
         
 
         currentChildBorder = new StartScreen(this);
-        parrentBorder.setLeft(currentChildBorder.getLeftBox());
+        parentBorder.setLeft(currentChildBorder.getLeftBox());
         renderScreen();
 
-        Scene scene = new Scene(parrentBorder, 1600, 800);
+        Scene scene = new Scene(parentBorder, 1600, 800);
         scene.getStylesheets().add(this.getClass().getResource("TicketStyle.css").toExternalForm());
 
         primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/res/icon-pic.png")));
@@ -69,8 +69,8 @@ public class GUI extends Application {
     }
     
     public void renderScreen() {
-        parrentBorder.setCenter(currentChildBorder.getBorderPane());
-        parrentBorder.setLeft(currentChildBorder.getLeftBox());
+        parentBorder.setCenter(currentChildBorder.getBorderPane());
+        parentBorder.setLeft(currentChildBorder.getLeftBox());
         currentChildBorder.getBorderPane().setId("childBorder");
     }
     
