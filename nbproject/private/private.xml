@@ -3,15 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/enteties/Pilot.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/gui/TopBox.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/gui/TicketStyle.css</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/enteties/Crew.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/gui/PassengerScreen.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/core/TicketReservationSystem.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/gui/ChildBorder.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/gui/PilotScreen.java</file>
-            <file>file:/C:/Users/Olav/OneDrive/Documents/NetBeansProjects/TicketReservationSystemGUI/src/no/ntnu/ticketreservationsystem/gui/FlightScreen.java</file>
+            <file>file:/C:/Users/Olav/Desktop/GitHubProsjekter/ProsjektoppgaveGit/src/no/ntnu/ticketreservationsystem/gui/RegisterNewStage.java</file>
+            <file>file:/C:/Users/Olav/Desktop/GitHubProsjekter/ProsjektoppgaveGit/src/no/ntnu/ticketreservationsystem/gui/ChildBorder.java</file>
         </group>
     </open-files>
 </project-private>
