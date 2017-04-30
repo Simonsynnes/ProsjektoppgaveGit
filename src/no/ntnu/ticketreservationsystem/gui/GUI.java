@@ -39,9 +39,10 @@ public class GUI extends Application {
         for(int i = 0; i <= 15; i++) {
             mainCore.doRegisterPassenger("Olav", "Telseth", "hotmail");
         }
+       
         for(int i = 0; i <= 15; i++) {
-            mainCore.doCreateFlight("A3", 16, 0, 18, 0, 2);
-        }
+            mainCore.doCreateFlight("A3", 16, 0, 18, 0, 2); 
+        }  
         for(int i = 0; i <= 15; i++) {
             mainCore.doRegisterPilot("Olav", "Telseth", "hotmail", "49dc", "rokgr");
         }

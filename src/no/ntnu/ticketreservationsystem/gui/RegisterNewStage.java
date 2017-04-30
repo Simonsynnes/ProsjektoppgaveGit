@@ -74,6 +74,10 @@ public class RegisterNewStage {
 
         Button bt5 = new Button("Register New Plane");
         bt5.setPrefSize(400, 150);
+        bt5.setOnAction((ActionEvent) -> {
+            createRegisterPlaneScene();
+            stage.setScene(planeScene);
+        });
 
         fp.getChildren().addAll(bt1, bt2, bt3, bt4, bt5);
 
@@ -88,29 +92,35 @@ public class RegisterNewStage {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setStyle("-fx-font-size: 30;");
+        
+         Label topLabel = new Label();
+        GridPane.setConstraints(topLabel, 0, 0);
+        GridPane.setColumnSpan(topLabel, 2);
+        topLabel.setText("Passenger information:");
 
         TextField name = new TextField();
-        name.setPromptText("Enter your first name.");
-        name.setPrefColumnCount(10);
-        GridPane.setConstraints(name, 0, 0);
+        name.setPromptText("Enter your first name");
+        name.setPrefColumnCount(15);
+        GridPane.setConstraints(name, 0, 1);
 
         TextField lastName = new TextField();
-        lastName.setPromptText("Enter your last name.");
-        GridPane.setConstraints(lastName, 0, 1);
+        lastName.setPromptText("Enter your last name");
+        lastName.setPrefColumnCount(15);
+        GridPane.setConstraints(lastName, 0, 2);
 
         TextField email = new TextField();
         email.setPrefColumnCount(15);
-        email.setPromptText("Enter your email address here.");
-        GridPane.setConstraints(email, 0, 2);
+        email.setPromptText("Enter email address");
+        GridPane.setConstraints(email, 0, 3);
 
         Button submit = new Button("Submit");
-        GridPane.setConstraints(submit, 1, 0);
+        GridPane.setConstraints(submit, 1, 1);
 
         Button clear = new Button("Clear");
-        GridPane.setConstraints(clear, 1, 1);
+        GridPane.setConstraints(clear, 1, 2);
 
         Label label = new Label();
-        GridPane.setConstraints(label, 0, 3);
+        GridPane.setConstraints(label, 0, 4);
         GridPane.setColumnSpan(label, 2);
 
         //Setting an action for the Submit button
@@ -132,8 +142,8 @@ public class RegisterNewStage {
             email.clear();
             label.setText(null);
         });
-        grid.getChildren().addAll(name, lastName, email, submit, clear, label);
-        passengerScene = new Scene(grid, 850, 500);
+        grid.getChildren().addAll(name, lastName, email, submit, clear, label, topLabel);
+        passengerScene = new Scene(grid, 1000, 500);
     }
 
     private void createRegisterCrewScene() {
@@ -144,31 +154,37 @@ public class RegisterNewStage {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setStyle("-fx-font-size: 30;");
+        
+        Label topLabel = new Label();
+        GridPane.setConstraints(topLabel, 0, 0);
+        GridPane.setColumnSpan(topLabel, 2);
+        topLabel.setText("Crew information:");
 
         TextField name = new TextField();
-        name.setPromptText("Enter your first name.");
-        name.setPrefColumnCount(10);
-        GridPane.setConstraints(name, 0, 0);
+        name.setPromptText("Enter your first name");
+        name.setPrefColumnCount(15);
+        GridPane.setConstraints(name, 0, 1);
 
         TextField lastName = new TextField();
-        lastName.setPromptText("Enter your last name.");
-        GridPane.setConstraints(lastName, 0, 1);
+        lastName.setPromptText("Enter your last name");
+        lastName.setPrefColumnCount(15);
+        GridPane.setConstraints(lastName, 0, 2);
 
         TextField email = new TextField();
         email.setPrefColumnCount(15);
-        email.setPromptText("Enter your email address here.");
-        GridPane.setConstraints(email, 0, 2);
+        email.setPromptText("Enter email address");
+        GridPane.setConstraints(email, 0, 3);
 
         TextField employeeNumber = new TextField();
-        employeeNumber.setPrefColumnCount(20);
-        employeeNumber.setPromptText("Enter employee ID here.");
-        GridPane.setConstraints(employeeNumber, 0, 3);
+        employeeNumber.setPrefColumnCount(15);
+        employeeNumber.setPromptText("Enter employee ID");
+        GridPane.setConstraints(employeeNumber, 0, 4);
 
         Button submit = new Button("Submit");
-        GridPane.setConstraints(submit, 1, 0);
+        GridPane.setConstraints(submit, 1, 1);
 
         Button clear = new Button("Clear");
-        GridPane.setConstraints(clear, 1, 1);
+        GridPane.setConstraints(clear, 1, 2);
 
         Label label = new Label();
         GridPane.setConstraints(label, 0, 6);
@@ -178,7 +194,7 @@ public class RegisterNewStage {
         submit.setOnAction((ActionEvent) -> {
             if ((email.getText() != null && !email.getText().isEmpty())) {
                 label.setText(name.getText() + " " + lastName.getText() + ", "
-                        + "Welcome to the team, you have been added to the system as a pilot!");
+                        + "Welcome to the team, you have been added to the system as crew!");
                 gui.getCore().doRegisterCrew(name.getText(), lastName.getText(),
                         email.getText(), employeeNumber.getText());
 
@@ -195,8 +211,8 @@ public class RegisterNewStage {
             employeeNumber.clear();
             label.setText(null);
         });
-        grid.getChildren().addAll(name, lastName, email, employeeNumber, submit, clear, label);
-        crewScene = new Scene(grid, 850, 500);
+        grid.getChildren().addAll(name, lastName, email, employeeNumber, submit, clear, label, topLabel);
+        crewScene = new Scene(grid, 1000, 500);
     }
 
     private void createRegisterPilotScene() {
@@ -207,36 +223,42 @@ public class RegisterNewStage {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setStyle("-fx-font-size: 30;");
+        
+        Label topLabel = new Label();
+        GridPane.setConstraints(topLabel, 0, 0);
+        GridPane.setColumnSpan(topLabel, 2);
+        topLabel.setText("Pilot information:");
 
         TextField name = new TextField();
-        name.setPromptText("Enter your first name.");
+        name.setPromptText("Enter your first name");
         name.setPrefColumnCount(10);
-        GridPane.setConstraints(name, 0, 0);
+        GridPane.setConstraints(name, 0, 1);
 
         TextField lastName = new TextField();
-        lastName.setPromptText("Enter your last name.");
-        GridPane.setConstraints(lastName, 0, 1);
+        lastName.setPromptText("Enter your last name");
+        lastName.setPrefColumnCount(10);
+        GridPane.setConstraints(lastName, 0, 2);
 
         TextField email = new TextField();
         email.setPrefColumnCount(15);
-        email.setPromptText("Enter your email address here.");
-        GridPane.setConstraints(email, 0, 2);
+        email.setPromptText("Enter email address");
+        GridPane.setConstraints(email, 0, 3);
 
         TextField employeeNumber = new TextField();
         employeeNumber.setPrefColumnCount(15);
-        employeeNumber.setPromptText("Enter employee ID here.");
-        GridPane.setConstraints(employeeNumber, 0, 3);
+        employeeNumber.setPromptText("Enter employee ID");
+        GridPane.setConstraints(employeeNumber, 0, 4);
 
         TextField sertificate = new TextField();
         sertificate.setPrefColumnCount(15);
-        sertificate.setPromptText("Enter certificate ID here.");
-        GridPane.setConstraints(sertificate, 0, 4);
+        sertificate.setPromptText("Enter certificate ID");
+        GridPane.setConstraints(sertificate, 0, 5);
 
         Button submit = new Button("Submit");
-        GridPane.setConstraints(submit, 1, 0);
+        GridPane.setConstraints(submit, 1, 1);
 
         Button clear = new Button("Clear");
-        GridPane.setConstraints(clear, 1, 1);
+        GridPane.setConstraints(clear, 1, 2);
 
         Label label = new Label();
         GridPane.setConstraints(label, 0, 7);
@@ -252,7 +274,7 @@ public class RegisterNewStage {
                         sertificate.getText());
 
             } else {
-                label.setText("You have not registered yet!.");
+                label.setText("You have not registered yet!");
             }
         });
 
@@ -265,8 +287,8 @@ public class RegisterNewStage {
             sertificate.clear();
             label.setText(null);
         });
-        grid.getChildren().addAll(name, lastName, email, employeeNumber, sertificate, submit, clear, label);
-        pilotScene = new Scene(grid, 850, 500);
+        grid.getChildren().addAll(name, lastName, email, employeeNumber, sertificate, submit, clear, label, topLabel);
+        pilotScene = new Scene(grid, 1000, 500);
     }
 
     private void createRegisterFlightScene() {
@@ -277,36 +299,48 @@ public class RegisterNewStage {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setStyle("-fx-font-size: 30;");
+        
 
         TextField flightID = new TextField();
-        flightID.setPromptText("Enter flight ID.");
+        flightID.setPromptText("Enter flight ID");
         flightID.setPrefColumnCount(10);
         GridPane.setConstraints(flightID, 0, 0);
+        
+        Label arrivalLabel = new Label();
+        GridPane.setConstraints(arrivalLabel, 0, 1);
+        GridPane.setColumnSpan(arrivalLabel, 2);
+        arrivalLabel.setText("Time of arrival");
+
 
         TextField arrivalHour = new TextField();
-        arrivalHour.setPrefColumnCount(5);
-        arrivalHour.setPromptText("Enter hour of arrival");
-        GridPane.setConstraints(arrivalHour, 0, 1);
+        arrivalHour.setPrefColumnCount(10);
+        arrivalHour.setPromptText("Hour");
+        GridPane.setConstraints(arrivalHour, 0, 2);
 
         TextField arrivalMin = new TextField();
-        arrivalMin.setPrefColumnCount(5);
-        arrivalMin.setPromptText("Enter minute of arrival");
-        GridPane.setConstraints(arrivalMin, 1, 1);
+        arrivalMin.setPrefColumnCount(15);
+        arrivalMin.setPromptText("Min");
+        GridPane.setConstraints(arrivalMin, 1, 2);
+        
+        Label departureLabel = new Label();
+        GridPane.setConstraints(departureLabel, 0, 3);
+        GridPane.setColumnSpan(departureLabel, 2);
+        departureLabel.setText("Time of departure");
 
         TextField departureHour = new TextField();
         departureHour.setPrefColumnCount(5);
-        departureHour.setPromptText("Enter hour of departure");
-        GridPane.setConstraints(departureHour, 0, 3);
+        departureHour.setPromptText("Hour");
+        GridPane.setConstraints(departureHour, 0, 4);
 
         TextField departureMin = new TextField();
         departureMin.setPrefColumnCount(5);
-        departureMin.setPromptText("Enter minute of departure");
-        GridPane.setConstraints(departureMin, 1, 3);
+        departureMin.setPromptText("Min");
+        GridPane.setConstraints(departureMin, 1, 4);
         
         TextField planeType = new TextField();
         planeType.setPrefColumnCount(6);
-        departureMin.setPromptText("Enter type of plane");
-        GridPane.setConstraints(departureMin, 0, 5);
+        planeType.setPromptText("Enter type of plane");
+        GridPane.setConstraints(planeType, 0, 6);
 
         Button submit = new Button("Submit");
         GridPane.setConstraints(submit, 3, 0);
@@ -315,7 +349,7 @@ public class RegisterNewStage {
         GridPane.setConstraints(clear, 3, 1);
 
         Label label = new Label();
-        GridPane.setConstraints(label, 0, 6);
+        GridPane.setConstraints(label, 0, 7);
         GridPane.setColumnSpan(label, 2);
 
         //Setting an action for the Submit button
@@ -338,7 +372,87 @@ public class RegisterNewStage {
             arrivalMin.clear();
             label.setText(null);
         });
-        grid.getChildren().addAll(flightID, departureHour, departureMin, arrivalHour, arrivalMin, submit, clear, label);
-        flightScene = new Scene(grid, 850, 500);
+        grid.getChildren().addAll(flightID, departureHour, departureMin, arrivalHour, arrivalMin, planeType, submit, 
+                clear, label, arrivalLabel, departureLabel);
+        flightScene = new Scene(grid, 1200, 500);
+    }
+    private void createRegisterPlaneScene() {
+
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(20, 20, 20, 20));
+        grid.setAlignment(Pos.CENTER);
+        grid.setVgap(10);
+        grid.setHgap(10);
+        grid.setStyle("-fx-font-size: 30;");
+        
+        Label topLabel = new Label();
+        GridPane.setConstraints(topLabel, 0, 0);
+        GridPane.setColumnSpan(topLabel, 2);
+        topLabel.setText("Plane information:");
+
+        TextField planeName = new TextField();
+        planeName.setPromptText("plane name");
+        planeName.setPrefColumnCount(15);
+        GridPane.setConstraints(planeName, 0, 1);
+
+        TextField description = new TextField();
+        description.setPrefColumnCount(15);
+        description.setPromptText("short description");
+        GridPane.setConstraints(description, 0, 2);
+
+        TextField seatsInRow = new TextField();
+        seatsInRow.setPrefColumnCount(15);
+        seatsInRow.setPromptText("seats in row");
+        GridPane.setConstraints(seatsInRow, 0, 3);
+
+        TextField seatRowAmount = new TextField();
+        seatRowAmount.setPrefColumnCount(15);
+        seatRowAmount.setPromptText("seat rows");
+        GridPane.setConstraints(seatRowAmount, 1, 3);
+
+        TextField maxPilots = new TextField();
+        maxPilots.setPrefColumnCount(15);
+        maxPilots.setPromptText("max pilots");
+        GridPane.setConstraints(maxPilots, 0, 6);
+        
+        TextField maxCrew = new TextField();
+        maxCrew.setPrefColumnCount(10);
+        maxCrew.setPromptText("max crew");
+        GridPane.setConstraints(maxCrew, 0, 7);
+
+        Button submit = new Button("Submit");
+        GridPane.setConstraints(submit, 1, 1);
+
+        Button clear = new Button("Clear");
+        GridPane.setConstraints(clear, 1, 2);
+
+        Label label = new Label();
+        GridPane.setConstraints(label, 0, 8);
+        GridPane.setColumnSpan(label, 2);
+
+        //Setting an action for the Submit button
+        submit.setOnAction((ActionEvent) -> {
+            label.setText("Plane has been registered to the system!");
+            gui.getCore().doCreateNewPlane(planeName.getText(), 
+                    description.getText(),
+                    Integer.parseInt(seatsInRow.getText()), 
+                    Integer.parseInt(seatRowAmount.getText()), 
+                    Integer.parseInt(maxPilots.getText()),
+                    Integer.parseInt(maxCrew.getText()));
+        });
+
+        //Setting an action for the Clear button
+        clear.setOnAction((ActionEvent) -> {
+            planeName.clear();
+            description.clear();
+            seatsInRow.clear();
+            seatRowAmount.clear();
+            maxPilots.clear();
+            maxCrew.clear();
+            label.setText(null);
+        });
+        grid.getChildren().addAll(planeName, description, seatsInRow, seatRowAmount, maxPilots, maxCrew, submit,
+                clear, label, topLabel);
+        planeScene = new Scene(grid, 1000, 500);
     }
 }
