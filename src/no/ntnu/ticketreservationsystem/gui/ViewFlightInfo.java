@@ -65,6 +65,9 @@ public class ViewFlightInfo extends ViewInfoStage {
             Button btn = new Button(seat.getSeatId());
             btn.setPrefSize(50, 50);
             fp.getChildren().add(btn);
+            btn.setOnAction((ActionEvent) -> {
+                SellTicketStage sellTicket = new SellTicketStage(gui, flight, seat);
+            });
         }
         
         bp.setRight(fp);

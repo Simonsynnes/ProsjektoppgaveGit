@@ -55,6 +55,17 @@ public class TopBox {
                 gui.renderScreen();
             }
         });
+        
+        Button ticket = new Button("Ticket");
+        ticket.setPrefSize(400, 80);
+        ticket.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                gui.getVisitedChildBorders().push(gui.getCurrentChildBorder());
+                gui.setCurrentChildBorder(new TicketScreen(gui));
+                gui.renderScreen();
+            }
+        });
 
         Button flight = new Button("Flight");
         flight.setPrefSize(400, 80);
@@ -75,7 +86,7 @@ public class TopBox {
             gui.renderScreen();
         });
 
-        hbox.getChildren().addAll(passenger, crew, pilot, flight, plane);
+        hbox.getChildren().addAll(passenger, crew, pilot, ticket, flight, plane);
     }
     
     public HBox getTopBox() {

@@ -10,7 +10,6 @@ import no.ntnu.ticketreservationsystem.enteties.Seat;
 import no.ntnu.ticketreservationsystem.enteties.Plane;
 import no.ntnu.ticketreservationsystem.enteties.Flight;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
 
@@ -274,6 +273,10 @@ public class TicketReservationSystem {
      */
     public List<Flight> getListOfFlights() {
         return flightRegister.getFlightList();
+    }
+    
+    public List<Ticket> getListOfTickets() {
+        return ticketRegister.getTicketList();
     }
 
     /**

@@ -16,12 +16,30 @@ public class Ticket {
     private Passenger person;
     private Flight flight;
     private Seat seat;
+    private String name;
+    private String departure;
+    private String seatID;
     
     public Ticket(Flight flight, Passenger person, Seat seat) {
         this.flight = flight;
         this.person = person;
         this.seat = seat;
         this.seat.setUnavailable();
+        seatID = seat.getSeatId();
+        departure = flight.getDepartureTime();
+        name = person.getFullName();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public String getSeatID() {
+        return seatID;
     }
     
     public Flight getFlight() {

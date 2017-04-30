@@ -21,7 +21,7 @@ import no.ntnu.ticketreservationsystem.enteties.Flight;
 public class FlightScreen extends ChildBorder {
 
     protected GridPane grid;
-    private TableView table;
+    private TableView<Flight> table;
 
     public FlightScreen(GUI gui) {
         super(gui);
@@ -44,6 +44,10 @@ public class FlightScreen extends ChildBorder {
         
         Button sellTicketBtn = new Button("Sell Ticket");
         sellTicketBtn.setPrefSize(500, 150);
+        sellTicketBtn.setOnAction((ActionEvent) -> {
+            Flight flight = (Flight) table.getSelectionModel().getSelectedItem();
+            SellTicketStage sellTicket = new SellTicketStage(gui, flight);
+        });
         selectionBox.getChildren().add(sellTicketBtn);
         
         Button viewFlightInfoBtn = new Button("View Flight Info");

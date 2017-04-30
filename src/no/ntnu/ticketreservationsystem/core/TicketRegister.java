@@ -3,11 +3,11 @@
  */
 package no.ntnu.ticketreservationsystem.core;
 
+import java.util.ArrayList;
 import no.ntnu.ticketreservationsystem.enteties.Ticket;
 import no.ntnu.ticketreservationsystem.enteties.Seat;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
 import no.ntnu.ticketreservationsystem.enteties.Flight;
-import java.util.HashSet;
 
 /**
  * 
@@ -15,10 +15,10 @@ import java.util.HashSet;
  */
 public class TicketRegister {
     
-    private HashSet<Ticket> tickets;
+    private ArrayList<Ticket> tickets;
     
     public TicketRegister() {
-        tickets = new HashSet<>();
+        tickets = new ArrayList<>();
     }
     
     public String getTicketPassengerAndSeat() {
@@ -29,7 +29,7 @@ public class TicketRegister {
         return passengerOnSeat;
     }
     
-    public HashSet<Ticket> getTicketList() {
+    public ArrayList<Ticket> getTicketList() {
         return tickets;
     }
     
