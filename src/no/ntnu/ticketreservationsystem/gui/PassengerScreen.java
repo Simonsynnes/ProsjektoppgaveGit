@@ -6,17 +6,11 @@
 package no.ntnu.ticketreservationsystem.gui;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
 
 /**
@@ -45,6 +39,18 @@ public class PassengerScreen extends ChildBorder {
         
         table.setItems(FXCollections.observableList(gui.getCore().getListOfPassengers()));
         bp.setCenter(table);
+        
+        Button sellTicketBtn = new Button("Sell Ticket");
+        sellTicketBtn.setPrefSize(500, 150);
+        selectionBox.getChildren().add(sellTicketBtn);
+        
+        Button viewPassengerInfoBtn = new Button("View Passenger Info");
+        viewPassengerInfoBtn.setPrefSize(500, 150);
+        viewPassengerInfoBtn.setOnAction((ActionEvent) -> {
+            Passenger passenger = table.getSelectionModel().getSelectedItem();
+            ViewPassengerInfo passengerInfo = new ViewPassengerInfo(gui, passenger);
+        });
+        selectionBox.getChildren().add(viewPassengerInfoBtn);
     }
     
     public BorderPane getBorderPane() {

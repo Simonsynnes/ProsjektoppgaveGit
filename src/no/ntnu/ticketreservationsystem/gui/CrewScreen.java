@@ -6,22 +6,19 @@
 package no.ntnu.ticketreservationsystem.gui;
 
 import javafx.collections.FXCollections;
-import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import no.ntnu.ticketreservationsystem.enteties.Crew;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
 
 /**
  *
  * @author olavt
  */
-public class CrewScreen extends PassengerScreen {
+public class CrewScreen extends ChildBorder {
    
     private TableView<Passenger> table;
     
@@ -46,6 +43,14 @@ public class CrewScreen extends PassengerScreen {
         
         table.setItems(FXCollections.observableList(gui.getCore().getListOfCrew()));
         bp.setCenter(table);
+        
+        Button viewCrewInfoBtn = new Button("View Crew Info");
+        viewCrewInfoBtn.setPrefSize(500, 150);
+        viewCrewInfoBtn.setOnAction((ActionEvent) -> {
+            Crew crew = (Crew)table.getSelectionModel().getSelectedItem();
+            ViewCrewInfo crewInfo = new ViewCrewInfo(gui, crew);
+        });
+        selectionBox.getChildren().add(viewCrewInfoBtn);
     }
     
     public BorderPane getBorderPane() {

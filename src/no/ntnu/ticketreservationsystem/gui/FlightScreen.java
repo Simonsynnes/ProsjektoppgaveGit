@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import no.ntnu.ticketreservationsystem.enteties.Flight;
 
 /**
  *
@@ -41,9 +42,17 @@ public class FlightScreen extends ChildBorder {
         table.setItems(FXCollections.observableList(gui.getCore().getListOfFlights()));
         bp.setCenter(table);
         
-        Button button = new Button("Button");
-        button.setPrefSize(500, 200);
-        selectionBox.getChildren().add(button);
+        Button sellTicketBtn = new Button("Sell Ticket");
+        sellTicketBtn.setPrefSize(500, 150);
+        selectionBox.getChildren().add(sellTicketBtn);
+        
+        Button viewFlightInfoBtn = new Button("View Flight Info");
+        viewFlightInfoBtn.setPrefSize(500, 150);
+        viewFlightInfoBtn.setOnAction((ActionEvent) -> {
+            Flight flight = (Flight) table.getSelectionModel().getSelectedItem();
+            ViewFlightInfo flightInfo = new ViewFlightInfo(gui, flight);
+        });
+        selectionBox.getChildren().add(viewFlightInfoBtn);
     }
 
     @Override

@@ -6,11 +6,13 @@
 package no.ntnu.ticketreservationsystem.gui;
 
 import javafx.collections.FXCollections;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
+import no.ntnu.ticketreservationsystem.enteties.Pilot;
 
 /**
  *
@@ -43,6 +45,14 @@ public class PilotScreen extends ChildBorder {
         
         table.setItems(FXCollections.observableList(gui.getCore().getListOfPilots()));
         bp.setCenter(table);
+        
+        Button viewPilotInfoBtn = new Button("View Pilot Info");
+        viewPilotInfoBtn.setPrefSize(500, 150);
+        viewPilotInfoBtn.setOnAction((ActionEvent) -> {
+            Pilot pilot = (Pilot)table.getSelectionModel().getSelectedItem();
+            ViewPilotInfo crewInfo = new ViewPilotInfo(gui, pilot);
+        });
+        selectionBox.getChildren().add(viewPilotInfoBtn);
     }
     
     public BorderPane getBorderPane() {
