@@ -32,12 +32,12 @@ public class PassengerRegister {
     }
         
     public void addNewPilot(String firstName, String lastName, 
-            String eMail, String employeeNumber, String sertificate) {
+            String eMail, String employeeNumber, String sertificate) throws EmailFormatException {
         passengers.add(new Pilot(firstName, lastName, eMail, employeeNumber, sertificate));
     }
     
     public void addNewCrew(String firstName, String lastName, String eMail,
-            String employeeNumber) {
+            String employeeNumber) throws EmailFormatException {
         passengers.add(new Crew(firstName, lastName, eMail, employeeNumber));
     }
     

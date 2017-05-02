@@ -5,6 +5,8 @@
  */
 package no.ntnu.ticketreservationsystem.gui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +17,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import no.ntnu.ticketreservationsystem.enteties.EmailFormatException;
 
 /**
  *
@@ -195,8 +198,12 @@ public class RegisterNewStage {
             if ((email.getText() != null && !email.getText().isEmpty())) {
                 label.setText(name.getText() + " " + lastName.getText() + ", "
                         + "Welcome to the team, you have been added to the system as crew!");
-                gui.getCore().doRegisterCrew(name.getText(), lastName.getText(),
-                        email.getText(), employeeNumber.getText());
+                try {
+                    gui.getCore().doRegisterCrew(name.getText(), lastName.getText(),
+                            email.getText(), employeeNumber.getText());
+                } catch (EmailFormatException ex) {
+                    //text
+                }
 
             } else {
                 label.setText("You have not registered yet!.");
@@ -269,9 +276,13 @@ public class RegisterNewStage {
             if ((email.getText() != null && !email.getText().isEmpty())) {
                 label.setText(name.getText() + " " + lastName.getText() + ", "
                         + "Welcome to the team, you have been added to the system as a pilot!");
-                gui.getCore().doRegisterPilot(name.getText(), lastName.getText(),
-                        email.getText(), employeeNumber.getText(),
-                        sertificate.getText());
+                try {
+                    gui.getCore().doRegisterPilot(name.getText(), lastName.getText(),
+                            email.getText(), employeeNumber.getText(),
+                            sertificate.getText());
+                } catch (EmailFormatException ex) {
+                    //text
+                }
 
             } else {
                 label.setText("You have not registered yet!");

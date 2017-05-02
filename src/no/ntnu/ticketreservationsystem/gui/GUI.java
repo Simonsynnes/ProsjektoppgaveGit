@@ -6,12 +6,15 @@
 package no.ntnu.ticketreservationsystem.gui;
 
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import no.ntnu.ticketreservationsystem.core.TicketReservationSystem;
+import no.ntnu.ticketreservationsystem.enteties.EmailFormatException;
 
 /**
  *
@@ -44,7 +47,11 @@ public class GUI extends Application {
             mainCore.doCreateFlight("A3", 16, 0, 18, 0, 2); 
         }  
         for(int i = 0; i <= 15; i++) {
-            mainCore.doRegisterPilot("Olav", "Telseth", "hotmail", "49dc", "rokgr");
+            try {
+                mainCore.doRegisterPilot("Olav", "Telseth", "hotmail@", "49dc", "rokgr");
+            } catch (EmailFormatException ex) {
+                System.out.println("lol");
+            }
         }
         parentBorder = new BorderPane();
         visitedChildBorders = new Stack<>();

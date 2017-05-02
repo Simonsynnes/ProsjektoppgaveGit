@@ -14,7 +14,7 @@ public class Crew extends Passenger {
     String employeeNumber;    
     
     public Crew(String lastName, String surName, String emailAddress, 
-            String employeeNumber) {
+            String employeeNumber) throws EmailFormatException {
         super(lastName, surName, emailAddress);
         this.employeeNumber = employeeNumber;
     }

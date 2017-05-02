@@ -76,9 +76,10 @@ public class Passenger {
      * sets a new emailAdress.
      *
      * @param newEmail for the new eMail.
+     * @throws no.ntnu.ticketreservationsystem.enteties.EmailFormatException
      */
     public void setEmailAddress(String newEmail) throws EmailFormatException {
-        if(emailAddress.contains("@"))
+        if(newEmail.contains("@"))
         {
             emailAddress = newEmail;
         }
@@ -86,6 +87,7 @@ public class Passenger {
         {
             throw new EmailFormatException();
         }
+        emailAddress = newEmail;
     }
     
     /**

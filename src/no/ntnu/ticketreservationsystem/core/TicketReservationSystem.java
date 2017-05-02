@@ -97,7 +97,7 @@ public class TicketReservationSystem {
      * @param sertificate get persons sertificate
      */
     public void doRegisterPilot(String firstName, String lastName, String eMail,
-            String employeeNumber, String sertificate) {
+            String employeeNumber, String sertificate) throws EmailFormatException {
         passengerRegister.addNewPilot(firstName, lastName, eMail,
                 employeeNumber, sertificate);
     }
@@ -111,7 +111,7 @@ public class TicketReservationSystem {
      * @param employeeNumber get persons employee number
      */
     public void doRegisterCrew(String firstName, String lastName, String eMail,
-            String employeeNumber) {
+            String employeeNumber) throws EmailFormatException {
         passengerRegister.addNewCrew(firstName, lastName, eMail, employeeNumber);
     }
 
@@ -368,7 +368,7 @@ public class TicketReservationSystem {
      * @param employeeNumber
      * @param sertificate
      */
-    public void doRegisterPassengerAsPilot(Passenger passenger, String employeeNumber, String sertificate) {
+    public void doRegisterPassengerAsPilot(Passenger passenger, String employeeNumber, String sertificate) throws EmailFormatException {
         String firstName = passenger.getFirstName();
         String lastName = passenger.getLastName();
         String email = passenger.getEmailAddress();
@@ -381,7 +381,7 @@ public class TicketReservationSystem {
      * @param passenger
      * @param employeeNumber
      */
-    public void doRegisterPassengerAsCrew(Passenger passenger, String employeeNumber) {
+    public void doRegisterPassengerAsCrew(Passenger passenger, String employeeNumber) throws EmailFormatException {
         String firstName = passenger.getFirstName();
         String lastName = passenger.getLastName();
         String email = passenger.getEmailAddress();
