@@ -10,7 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import no.ntnu.ticketreservationsystem.enteties.Pilot;
 import no.ntnu.ticketreservationsystem.enteties.Plane;
 
 /**
@@ -24,27 +27,33 @@ public class PlaneScreen extends ChildBorder {
     public PlaneScreen(GUI gui) {
         super(gui);
         table = new TableView<>();
-        
+
         TableColumn name = new TableColumn("PlaneName");
         name.setCellValueFactory(new PropertyValueFactory("name"));
         TableColumn description = new TableColumn("Description");
         description.setCellValueFactory(new PropertyValueFactory("description"));
- 
+
         table.getColumns().setAll(name, description);
         table.setPrefWidth(450);
         table.setPrefHeight(300);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        
+
         table.setItems(FXCollections.observableList(gui.getCore().getArrayListOfPlane()));
         bp.setCenter(table);
-        
-        Button viewPlaneInfoBtn = new Button("View Plane Info");
-        viewPlaneInfoBtn.setPrefSize(500, 150);
-        viewPlaneInfoBtn.setOnAction((ActionEvent) -> {
-            Plane plane = (Plane)table.getSelectionModel().getSelectedItem();
-            ViewPlaneInfo planeInfo = new ViewPlaneInfo(gui, plane);
+
+        table.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && !hasClickedTable) {
+                Button viewPlaneInfoBtn = new Button("View Plane Info");
+                viewPlaneInfoBtn.setPrefSize(500, 150);
+                viewPlaneInfoBtn.setOnAction((ActionEvent) -> {
+                    Plane plane = (Plane) table.getSelectionModel().getSelectedItem();
+                    ViewPlaneInfo planeInfo = new ViewPlaneInfo(gui, plane);
+                });
+                selectionBox.getChildren().add(viewPlaneInfoBtn);
+
+                hasClickedTable = true;
+            }
         });
-        selectionBox.getChildren().add(viewPlaneInfoBtn);
     }
 
     public BorderPane getBorderPane() {

@@ -10,6 +10,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -24,8 +26,10 @@ public abstract class ChildBorder {
     
     protected BorderPane bp;
     protected VBox selectionBox;
+    protected boolean hasClickedTable;
     
     public ChildBorder(GUI gui) {
+        hasClickedTable = false;
         createLeftBox(gui);
         bp = new BorderPane();
         bp.setPadding(new Insets(10, 35, 35, 10));

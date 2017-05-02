@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
 import no.ntnu.ticketreservationsystem.enteties.Pilot;
@@ -21,11 +23,11 @@ import no.ntnu.ticketreservationsystem.enteties.Pilot;
 public class PilotScreen extends ChildBorder {
 
     private TableView<Passenger> table;
-    
+
     public PilotScreen(GUI gui) {
         super(gui);
         table = new TableView<>();
-        
+
         TableColumn firstName = new TableColumn("First Name");
         firstName.setCellValueFactory(new PropertyValueFactory("firstName"));
         TableColumn lastName = new TableColumn("Last Name");
@@ -36,29 +38,34 @@ public class PilotScreen extends ChildBorder {
         employeeNumber.setCellValueFactory(new PropertyValueFactory("emplyeeNumber"));
         TableColumn sertificate = new TableColumn("Sertificate");
         sertificate.setCellValueFactory(new PropertyValueFactory("sertificate"));
-        
- 
+
         table.getColumns().setAll(firstName, lastName, eMail, employeeNumber, sertificate);
         table.setPrefWidth(450);
         table.setPrefHeight(300);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        
+
         table.setItems(FXCollections.observableList(gui.getCore().getListOfPilots()));
         bp.setCenter(table);
-        
-        Button viewPilotInfoBtn = new Button("View Pilot Info");
-        viewPilotInfoBtn.setPrefSize(500, 150);
-        viewPilotInfoBtn.setOnAction((ActionEvent) -> {
-            Pilot pilot = (Pilot)table.getSelectionModel().getSelectedItem();
-            ViewPilotInfo crewInfo = new ViewPilotInfo(gui, pilot);
+
+        table.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && !hasClickedTable) {
+                Button viewPilotInfoBtn = new Button("View Pilot Info");
+                viewPilotInfoBtn.setPrefSize(500, 150);
+                viewPilotInfoBtn.setOnAction((ActionEvent) -> {
+                    Pilot pilot = (Pilot) table.getSelectionModel().getSelectedItem();
+                    ViewPilotInfo crewInfo = new ViewPilotInfo(gui, pilot);
+                });
+                selectionBox.getChildren().add(viewPilotInfoBtn);
+
+                hasClickedTable = true;
+            }
         });
-        selectionBox.getChildren().add(viewPilotInfoBtn);
     }
-    
+
     public BorderPane getBorderPane() {
         return bp;
     }
-    
+
     public void checkValue() {
         Passenger passenger = table.getSelectionModel().getSelectedItem();
         System.out.println(passenger.getFullName());

@@ -11,6 +11,9 @@ import no.ntnu.ticketreservationsystem.enteties.Plane;
 import no.ntnu.ticketreservationsystem.enteties.Flight;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import no.ntnu.ticketreservationsystem.enteties.EmailFormatException;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
 
 /**
@@ -77,7 +80,11 @@ public class TicketReservationSystem {
      * @param eMail get persons email
      */
     public void doRegisterPassenger(String firstName, String lastName, String eMail) {
+        try {
         passengerRegister.addNewPassenger(firstName, lastName, eMail);
+        } catch (EmailFormatException efe) {
+            
+        }
     }
 
     /**
@@ -347,7 +354,7 @@ public class TicketReservationSystem {
      *
      * @param passenger
      */
-    public void doRegisterPassengerAsPassenger(Passenger passenger) {
+    public void doRegisterPassengerAsPassenger(Passenger passenger) throws EmailFormatException {
         String firstName = passenger.getFirstName();
         String lastName = passenger.getLastName();
         String email = passenger.getEmailAddress();

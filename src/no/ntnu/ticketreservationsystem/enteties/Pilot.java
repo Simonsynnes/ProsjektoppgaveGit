@@ -15,7 +15,7 @@ public class Pilot extends Passenger {
     private String employeeNumber;
     
     public Pilot(String lastName, String surName, String emailAddress, 
-            String employeeNumber, String sertificate) {
+            String employeeNumber, String sertificate) throws EmailFormatException {
         super(lastName, surName, emailAddress);
         this.employeeNumber = employeeNumber;
         this.sertificate = sertificate;

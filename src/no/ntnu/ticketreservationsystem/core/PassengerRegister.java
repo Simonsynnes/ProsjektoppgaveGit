@@ -7,8 +7,8 @@ package no.ntnu.ticketreservationsystem.core;
 
 import java.util.ArrayList;
 import no.ntnu.ticketreservationsystem.enteties.Passenger;
-import java.util.HashSet;
 import no.ntnu.ticketreservationsystem.enteties.Crew;
+import no.ntnu.ticketreservationsystem.enteties.EmailFormatException;
 import no.ntnu.ticketreservationsystem.enteties.Pilot;
 
 /**
@@ -27,7 +27,7 @@ public class PassengerRegister {
         return passengers;
     }
     
-    public void addNewPassenger(String firstName, String lastName, String eMail) {
+    public void addNewPassenger(String firstName, String lastName, String eMail) throws EmailFormatException {
         passengers.add(new Passenger(firstName, lastName, eMail));
     }
         

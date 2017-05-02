@@ -24,11 +24,11 @@ public class Passenger {
      * @param firstName sets the surName
      * @param emailAddress sets the emailAddress
      */
-    public Passenger(String firstName, String lastName, String emailAddress) {
+    public Passenger(String firstName, String lastName, String emailAddress) throws EmailFormatException {
         // initialise instance variables
         this.lastName = lastName;
         this.firstName = firstName;
-        this.emailAddress = emailAddress;
+        setEmailAddress(emailAddress);
     }
 
     /**
@@ -77,8 +77,15 @@ public class Passenger {
      *
      * @param newEmail for the new eMail.
      */
-    public void setEmailAdress(String newEmail) {
-        emailAddress = newEmail;
+    public void setEmailAddress(String newEmail) throws EmailFormatException {
+        if(emailAddress.contains("@"))
+        {
+            emailAddress = newEmail;
+        }
+        else
+        {
+            throw new EmailFormatException();
+        }
     }
     
     /**

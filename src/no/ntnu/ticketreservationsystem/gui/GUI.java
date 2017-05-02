@@ -40,7 +40,7 @@ public class GUI extends Application {
             mainCore.doRegisterPassenger("Olav", "Telseth", "hotmail");
         }
        
-        for(int i = 0; i <= 15; i++) {
+        for(int i = 0; i <= 45; i++) {
             mainCore.doCreateFlight("A3", 16, 0, 18, 0, 2); 
         }  
         for(int i = 0; i <= 15; i++) {
