@@ -300,56 +300,61 @@ public class RegisterNewStage {
         grid.setHgap(10);
         grid.setStyle("-fx-font-size: 30;");
         
+         Label topLabel = new Label();
+        GridPane.setConstraints(topLabel, 0, 0);
+        GridPane.setColumnSpan(topLabel, 2);
+        topLabel.setText("Flight information");
+        
 
         TextField flightID = new TextField();
         flightID.setPromptText("Enter flight ID");
         flightID.setPrefColumnCount(10);
-        GridPane.setConstraints(flightID, 0, 0);
-        
-        Label arrivalLabel = new Label();
-        GridPane.setConstraints(arrivalLabel, 0, 1);
-        GridPane.setColumnSpan(arrivalLabel, 2);
-        arrivalLabel.setText("Time of arrival");
-
-
-        TextField arrivalHour = new TextField();
-        arrivalHour.setPrefColumnCount(10);
-        arrivalHour.setPromptText("Hour");
-        GridPane.setConstraints(arrivalHour, 0, 2);
-
-        TextField arrivalMin = new TextField();
-        arrivalMin.setPrefColumnCount(15);
-        arrivalMin.setPromptText("Min");
-        GridPane.setConstraints(arrivalMin, 1, 2);
+        GridPane.setConstraints(flightID, 0, 1);
         
         Label departureLabel = new Label();
-        GridPane.setConstraints(departureLabel, 0, 3);
+        GridPane.setConstraints(departureLabel, 0, 2);
         GridPane.setColumnSpan(departureLabel, 2);
         departureLabel.setText("Time of departure");
 
+
         TextField departureHour = new TextField();
-        departureHour.setPrefColumnCount(5);
+        departureHour.setPrefColumnCount(10);
         departureHour.setPromptText("Hour");
-        GridPane.setConstraints(departureHour, 0, 4);
+        GridPane.setConstraints(departureHour, 0, 3);
 
         TextField departureMin = new TextField();
-        departureMin.setPrefColumnCount(5);
+        departureMin.setPrefColumnCount(15);
         departureMin.setPromptText("Min");
-        GridPane.setConstraints(departureMin, 1, 4);
+        GridPane.setConstraints(departureMin, 1, 3);
+        
+        Label arrivalLabel = new Label();
+        GridPane.setConstraints(arrivalLabel, 0, 4);
+        GridPane.setColumnSpan(arrivalLabel, 2);
+        arrivalLabel.setText("Time of arrival");
+
+        TextField arrivalHour = new TextField();
+        arrivalHour.setPrefColumnCount(5);
+        arrivalHour.setPromptText("Hour");
+        GridPane.setConstraints(arrivalHour, 0, 5);
+
+        TextField arrivalMin = new TextField();
+        arrivalMin.setPrefColumnCount(5);
+        arrivalMin.setPromptText("Min");
+        GridPane.setConstraints(arrivalMin, 1, 5);
         
         TextField planeType = new TextField();
         planeType.setPrefColumnCount(6);
         planeType.setPromptText("Enter type of plane");
-        GridPane.setConstraints(planeType, 0, 6);
+        GridPane.setConstraints(planeType, 0, 7);
 
         Button submit = new Button("Submit");
-        GridPane.setConstraints(submit, 3, 0);
+        GridPane.setConstraints(submit, 3, 1);
 
         Button clear = new Button("Clear");
-        GridPane.setConstraints(clear, 3, 1);
+        GridPane.setConstraints(clear, 3, 2);
 
         Label label = new Label();
-        GridPane.setConstraints(label, 0, 7);
+        GridPane.setConstraints(label, 0, 8);
         GridPane.setColumnSpan(label, 2);
 
         //Setting an action for the Submit button
@@ -373,7 +378,7 @@ public class RegisterNewStage {
             label.setText(null);
         });
         grid.getChildren().addAll(flightID, departureHour, departureMin, arrivalHour, arrivalMin, planeType, submit, 
-                clear, label, arrivalLabel, departureLabel);
+                clear, label, arrivalLabel, departureLabel, topLabel);
         flightScene = new Scene(grid, 1200, 500);
     }
     private void createRegisterPlaneScene() {
